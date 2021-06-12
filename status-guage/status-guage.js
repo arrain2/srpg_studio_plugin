@@ -52,7 +52,9 @@ BaseUnitParameter.drawUnitParameter=function(x, y, statusEntry) {
 	var n = (statusEntry.param < 0) ? 0 : statusEntry.param;
 
 	// ゲージの描画
-	this._drawGauge(x + GAUGE_CORR_X, y + GAUGE_CORR_Y, n, statusEntry);
+    if (typeof statusEntry.gaugeObj !== 'undefined') {
+        this._drawGauge(x + GAUGE_CORR_X, y + GAUGE_CORR_Y, n, statusEntry);
+    }
 
 	// 数値の描画
 	NumberRenderer.drawNumber(x, y, n);
